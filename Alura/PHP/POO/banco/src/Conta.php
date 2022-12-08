@@ -1,24 +1,25 @@
 <?php
 class Conta{
-    private $cpfTitular;
-    private $nomeTitular;
-    private $saldo = 0;//define um valor inicial
+    private Titular $titular;
+    private float $saldo;
 
-    public function getCpfTitular() : string{
-        return $this->cpfTitular;
+    private static int $numeroDeContas;
+
+    public function __construct(Titular $titular){
+        $this->titular = $titular;
+        $this->saldo = 0;
+
+        self::$numeroDeContas++;//self acessa a classe atual
     }
-    public function getNomeTitular() : string{
-        return $this->nomeTitular;
+    public function __destruct(){
+        self::$numeroDeContas--;
+    }
+
+    public static function getNumeroContas() : int{
+        return self::$numeroDeContas;
     }
     public function getSaldo() : float{
         return $this->saldo;
-    }
-
-    public function setCpfTitular(string $cpf) : void{
-        $this->cpfTitular = $cpf;
-    }
-    public function setNomeTitular(string $nome) : void{
-        $this->nomeTitular = $nomee;
     }
 
     public function sacar(float $valorSacar) : void{
