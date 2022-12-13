@@ -19,7 +19,7 @@ abstract class Pessoa{
         return $this->cpf;
     }
 
-    private function validaNome(string $nome){
+    final private function validaNome(string $nome){
         if(strlen($nome) < 5){
             echo 'Nome precisa ter mais de 5 caracteres.' . PHP_EOL;
             exit();
