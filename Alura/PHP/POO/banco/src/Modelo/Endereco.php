@@ -12,6 +12,9 @@ class Endereco{
         $this->rua = $rua;
         $this->numero = $numero;
     }
+    public function __toString():string{
+        return "{$this->cidade}, {$this->bairro}, {$this->rua}, {$this->numero}";
+    }
 
     public function getCidade(){
         return $this->cidade;
